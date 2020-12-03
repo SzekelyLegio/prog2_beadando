@@ -53,13 +53,13 @@ class Dots_and_Boxes():
 
     #Ellenőrzi , hogy már ráklikkeltek e az adott vonalra
     def check_foglalt(self, logPos, type):
-        r = logPos[0]
-        c = logPos[1]
-        foglalt = True
+        r = logPos[0] # sor 
+        c = logPos[1] # oszlop
+        foglalt = True # alapból azt mondja hogy igen
         if type == 'row' and self.row_status[c][r] == 0:
-            foglalt = False
+            foglalt = False # ha 0 akkor átállítja hamisra és klikkelhető
         if type == 'col' and self.col_status[c][r] == 0:
-            foglalt = False
+            foglalt = False # ha 0 akkor átállítja hamisra és klikkelhető
         return foglalt
 
     #A klikkelt helyet konvertálja logikai pozícióvá
@@ -173,7 +173,6 @@ class Dots_and_Boxes():
 
         score_text = getPalyerName() + str(player1_score) + '\n'
         score_text += getPalyerName2() + str(player2_score) + '\n'
-        # score_text += 'Tie                    : ' + str(self.tie_score)
         self.canvas.create_text(returnSizeOfBoard() / 2, 3 * returnSizeOfBoard() / 4, fill=Green_color,
                                 text=score_text)
         self.reset_board = True
